@@ -1,0 +1,20 @@
+TESTO:
+
+Sia A[1 : n] un vettore di n interi positivi. Diremo che un elemento A[i] è 
+felice al quadrato se esiste un indice j tale che A[j] = A[i]2.
+Si progetti un algoritmo che dato A dica in tempo O(n log n) se esiste almeno 
+un elemento felice al quadrato. Si fornisca lo pseudocodice dettagliato.
+
+IDEA: 
+
+Ordino l'array A con l'algoritmo di ordinamento MergeSort.
+Scorro l'array da sinistra a destra e applico l'algoritmo di Ricerca Binaria A[i]^2 = j 
+Se j ≠ -1 (quindi se esiste) restituisci TRUE.
+
+COSTO: 
+
+Costo ordinamento array con algoritmo di MergeSort: O(n logn)
+Costo Scansione array: O(n)
+Costo RIcercaBinaria: O(logn)
+
+Costo Totale: O(n logn)

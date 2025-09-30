@@ -1,0 +1,25 @@
+TESTO:
+
+Si consideri il seguente gioco giocato su un grafo diretto G = (V,E) con n nodi ed m archi. 
+Una pedina è posizionata inizialmente su un nodo s. 
+è possibile spostare la pedina dalla posizione corrente, diciamo u, su un nodo v, se esiste un arco diretto (u, v) ∈ E in G. 
+Inoltre, c’è un insieme di nodi speciali X ⊆ V . Se la pedina si trova su un nodo speciale x ∈ X `e possibile muovere la pedina 
+anche lungo archi entranti in x, oltre quelli uscenti da x, ovvero `e possibile muovere la pedina da x a v se e solo se (v,x) ∈ E 
+o (x,v) ∈ E, o entrambi.
+Progettare una algoritmo che in tempo O(m + n) decide se, indipendentemente dalla posizione iniziale s, 
+è sempre possibile spostare la pedina da s a ogni altro nodo t del grafo con un’opportuna sequenza di mosse.
+
+IDEA: 
+
+Creiamo un grafo ausiliario G' = ( V', E') tale che:
+s' = s (nodo iniiale)
+t' = t (nodo finale)
+v' = v, con v' ∈ V' (in altre parole: i nodi del grafo ausiliario sono uguali ai nodi del grafo originale)
+e' = E + { (x, v) ∈ E per ogni (v, x) tale che x ∈ X ⊆ V} (in altrre parole: tutti gli archi del grafo ausiliare corrispondono agli 
+archi del grafo originale e in più ci saranno degli archi che partendo dai nodi x saranno gli inversi degli archi entranti in x)
+Applica una visita BFS con liste di adiacenza al grafo ausiliario G', creato precedentemente, partendo dal nodo iniziale s' e 
+arrivando al nodo finale t'. 
+
+COSTO:
+
+Usando la visita BFS con liste di adiacenza rispettiamo il costo dato dal testo, poichè questa visita con le liste di adiacenza costa O(m + n)

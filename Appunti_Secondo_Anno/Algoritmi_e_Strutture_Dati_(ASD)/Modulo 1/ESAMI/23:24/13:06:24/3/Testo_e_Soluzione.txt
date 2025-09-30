@@ -1,0 +1,37 @@
+TESTO:
+
+Sia T un albero binario con n, dove ogni nodo v di T ha un valore v.val ≥ 0 associato. 
+Diremo che una foglia v è buona se esiste un antenato u di v tale che v.val + u.val ≥ 100.
+Si progetti un algoritmo che dato T restituisca il numero di foglie buone dell’albero. 
+Si assuma che T è rappresentato tramite una struttura dati collegata, con record e puntatori, 
+dove il record di ogni nodo, oltre al campo con il valore, contiene anche il puntatore al figlio 
+sinistro e al figlio destro del nodo. L’algoritmo deve avere complessità O(n). 
+Si fornisca lo pseudocodice dettagliato.
+
+
+IDEA:
+
+Applico una Visita DFS Ricorsiva sull'albero T. 
+Per ogni nodo che visito controllo se il nodo non è foglia e mi salvo il valore v.val.
+Ogni volta per un nodo non foglia incremento questa variabile sommando i valori dei nodi.
+Fin quando non si arriva al nodo v che è foglia e se il valore della variabile è >= 100 allora 
+restituisci 1 e lo sommi agli altri rami.
+
+
+PSEUDOCODICE:
+
+DEF FogliaBuona(v, v.val, countV):
+
+    IF v non è foglia THEN
+        countV += v.val(V)
+    dx = FogliaBuona(v.dx, v.val, countV)
+    sx = FogliaBuona(v.sx, v.val, countV)
+
+    IF v è foglia THEN 
+        IF countV >= 100 THEN
+            return dx + sx
+    return dx + sx + 1
+
+COSTO:
+
+Applico una visita DFS Ricorsiva sull'albero T che ha un costo di O(n)

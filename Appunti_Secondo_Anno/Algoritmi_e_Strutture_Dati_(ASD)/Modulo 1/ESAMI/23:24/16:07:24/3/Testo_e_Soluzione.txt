@@ -1,0 +1,21 @@
+TESTO:
+
+Un grafo temporale è un grafo non orientato G dove ad ogni arco e è associata una etichetta temporale λ(e) che indica l’istante 
+in cui e può essere percorso. Un cammino temporale da un nodo s ad un nodo t è un cammino in G da s a t tale che le etichette 
+temporali degli archi percorsi da s a t sono non-decrescenti.
+Si consideri un grafo temporale G in cui, per ogni arco e, λ(e) ∈ {1,2,3,4,5}. 
+Progettare un algoritmo che, dato G e due nodi s e t, calcola se esiste un cammino temporale da s a t. 
+L’algoritmo deve avere complessità O(m + n) dove n ed m sono rispettivamente il numero di nodi e di archi di G.
+
+IDEA:
+
+Creo un Grafo Ausiliario G'=(V', E') formato da 5 livelli. 
+Il grafo Ausiliario avrà:
+v' = {v'_1 = v} + {v'_2 = v} + {v'_3 = v} + {v'_4 = v} + {v'_5 = v}
+e' = {(u', v') per ogni (u,v) ∈ E tale che w(e) = 1} + {(u', v') per ogni (u,v) ∈ E tale che w(e) = 2} + {(u', v') per ogni (u,v) ∈ E tale che w(e) = 3} + {(u', v') per ogni (u,v) ∈ E tale che w(e) = 4} + {(u', v') per ogni (u,v) ∈ E tale che w(e) = 5} 
+Ogni nodo v in G è collegato attraverso un arco al corrispettivo nodo v' in G', considerando tutti i livelli.
+Applico una visita BFS al garfo ausiliario G', partendo dal nodo iniziale s' = s e arriva al nodo finale t' = t.
+
+COSTO: 
+La creazione del seguente grafo avrà un costo O (m + n)
+La visita BFS con liste di adiacenza avrà un costo O (m + n)

@@ -1,0 +1,33 @@
+TESTO:
+
+Sia T un albero binario con n, dove ogni nodo v di T ha un colore v.col che può essere Blu (B) o Giallo (G), 
+e quindi v.col ∈ {B, G}. 
+Si progetti un algoritmo che dato T e un intero h, restituisca il numero di foglie gialle di T che hanno 
+profondità almeno h.
+Si assuma che T è rappresentato tramite una struttura dati collegata, con record e puntatori, 
+dove il record di ogni nodo, oltre al campo v.col, contiene anche il puntatore al figlio sinistro e 
+al figlio destro del nodo. L’algoritmo deve avere complessità O(n). Si fornisca lo pseudocodice dettagliato.
+
+IDEA: 
+
+Applichiamo una visita DFS ricorsiva all'albero T.
+Se il nodo v non è foglia visitiamo l'albero scendendo in profondità e ad ogni nodo che visiteremo 
+incrementiamo un contatore di 1 (così facendo calcolerò l'altezza del ramo fino alla foglia).
+Se il nodo è una foglia non si può più scendere in profondità, quindi verifichiamo se il contatore è maggiore 
+uguale del valore di h dato in input. Risaliamo l'albero e da ogni nodo restituiamo il valore dx + sx + 1.
+
+PSEUDOCODICE:
+
+ProfonditàGialla(nodo v, g, b, h)
+
+    If v non è una foglia then
+        count += 1
+        dx = ProfonditàGialla(v.dx, g, b, h)
+        sx = ProfonditàGialla(v.sx, g, b, h)
+    
+    If v è una foglia then
+        
+        If count >= h then 
+            return dx + sx + 1
+    return dx + sx
+    

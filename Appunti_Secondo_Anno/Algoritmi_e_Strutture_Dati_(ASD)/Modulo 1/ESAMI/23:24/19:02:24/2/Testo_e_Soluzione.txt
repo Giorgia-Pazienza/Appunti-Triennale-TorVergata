@@ -1,0 +1,22 @@
+TESTO: 
+
+Sia A[1 : n] un vettore di n numeri positivi. Progettare un algoritmo che in tempo O(n) e memoria ausiliaria costante 
+trova il piu` piccolo indice i tale che la somma dei primi i elementi di A `e maggiore della somma dei restanti elementi 
+in A[i + 1 : n]. Si fornisca lo pseudocodice dettagliato dell’algoritmo.
+
+SOLUZIONE:
+
+Calcoli la sommaTotale dell'array A.
+Scorri l'array da sinistra a destra. 
+PB: Per i = 0
+    Salvo A[i] nella variabile sommaSinistra e calcolo sommaDestra come sommaTotale - sommaSinistra
+    Se sommaSinistra è maggiore uguale di sommaDestra restituisco l'indice
+PI: Per ogni i 
+    Calcolo sommaSinistra + A[i] nella variabile sommaSinistra e calcolo sommaDestra come sommaTotale - sommaSinistra
+    Se sommaSinistra è maggiore uguale di sommaDestra restituisco l'indice, altrimenti incremento l'indice i 
+
+COSTO: 
+
+Scorrere l'intero array per calcolare la sommaTotale ha costo: O(n)
+Scansione lineare ha costo: O(n)
+Memoria Ausiliaria: O(1)

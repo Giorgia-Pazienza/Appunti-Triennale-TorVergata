@@ -1,0 +1,36 @@
+TESTO:
+
+Ti è dato in input un array A[1 : n] di n numeri (si assuma per semplicità che n è pari). 
+L’obiettivo è permutare i numeri in modo tale che non ci siano mai due numeri uguali adiacenti fra loro.
+Progetta un algoritmo che risolve il problema (o dice correttamente che non è possibile) in spazio O(n). 
+Si argomenti con chiarezza la correttezza dell’algoritmo proposto e si fornisca l’analisi della complessità.
+
+
+SOLUZIONE:
+
+Scorro A da sinistra a destra e vedo quanti elementi uguali a 
+
+A = [ 12, 6, 6, 1, 1, 1, 6, 12, 12, 6 ] 
+
+12 = 3 volte
+6 = 4 volte
+1 = 3 volte
+
+[  6 , 1  , 12 , 6  , 1 , 12 , 6 ,  1 , 12 ,  6 ]
+
+n = 6 massimo avrò 3 volte un elemento
+n = 4 massimo avrò 2 volte un elemento 
+n = 8 massimo avrò 4 volte un elemento 
+n = 10 massimo avrò 5 volte un elemento 
+
+
+A = [ 12, 6, 1, 12, 1, 1]
+
+12 = 2 volte
+1 = 3 volte
+6 = 1 volta
+
+[  1  |  12  |  1  |  12  |  1  | 6  ]
+
+[  1  |  6  |  1  |  12  |  1  |  12  ]
+

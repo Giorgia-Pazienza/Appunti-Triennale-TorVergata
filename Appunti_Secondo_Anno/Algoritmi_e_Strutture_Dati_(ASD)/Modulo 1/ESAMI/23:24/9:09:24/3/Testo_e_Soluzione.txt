@@ -1,0 +1,37 @@
+TESTO:
+
+Sia T un albero binario con n, dove ogni nodo v di T ha un colore v.col ∈ {1, 2} associato. 
+Diremo che un cammino radice-foglia è alternato se lungo il cammino non ci sono mai due nodi
+adiacenti dello stesso colore.
+Si progetti un algoritmo che dato T restituisca il numero di cammini radice-foglia alternati
+che terminano su una foglia di colore 1 e il numero quelli che terminano su una foglia di colore 2. 
+Si assuma che T è rappresentato tramite una struttura dati collegata, con record e puntatori, dove 
+il record di ogni nodo, oltre al campo con il colore, contiene anche il puntatore al figlio sinistro 
+e al figlio destro del nodo. 
+L’algoritmo deve avere complessità O(n). Si fornisca lo pseudocodice dettagliato.
+
+IDEA:
+
+Applico una visita DFS Ricorsiva all'albero T.
+Inizializzo una variabile che mi salvi il colore del nodo precedente.
+Per ogni nodo, se il nodo v non è foglia, vedo il valore del nodo precedente e lo salvo.
+Se il nodo v è foglia, allora controlli se 
+
+
+PSEUDOCODICE:
+
+DEF CamminoAlternato (v, v.col, Countcammino):
+
+    IF nodo v non è foglia THEN
+        IF v.col(v) ≠ v.col(figlio(v)) THEN
+            dx = CamminoAlternato (v.dx, v.col, Countcammino)
+            sx = CamminoAlternato (v.sx, v.col, Countcammino)
+        
+    IF nodo v è foglia THEN
+        Countcammino += 1
+    return dx + sx 
+
+
+COSTO:
+
+Applico una visita DFS Ricorsiva all'albero T che ha un costo di O(n).

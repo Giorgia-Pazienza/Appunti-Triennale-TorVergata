@@ -1,0 +1,35 @@
+TESTO: 
+
+Sia T un albero binario radicato di n nodi in cui ogni nodo v può essere bianco (B) o nero (N). 
+Progettare un algoritmo di complessità O(n) che, dato un intero non negativo h, restituisce il 
+numero di foglie nere di T che hanno una profondità di almeno h.
+Si assuma che T è mantenuto con una struttura dati collegata, fatta di record e puntatori, 
+e che il record di un nodo v contenga i seguenti campi: 
+il puntatore al figlio sinistro sin(v), quelo al figlio destro des(v), e un campo col(v) ∈ {B,N}. 
+Si fornisca lo pseudocodice dettagliato dell’algoritmo.
+
+IDEA:
+
+Applichi una visita DFS ricorsiva sull'albero T.
+Per ogni nodo che visito controllo se il nodo è foglia e se ha profondità almeno h. 
+Se rispetta queste due condizioni allora incremento il contatore di Foglie Nere.
+Appplico la visita su tutto l'albero, quando risalgo l'albero porto su il valore del numero
+di foglie di colore N a quella profondità.
+
+PSEUDOCODICE:
+
+DEF ContaFoglieNere( v, h, countN, profondità ):
+
+    IF v è foglia THEN:
+
+        IF profondità >= h AND v.col(v) = N THEN
+            countN += 1
+
+    dx = ContaFoglieNere( v.dx, h, countN, profondità + 1 )
+    sx = ContaFoglieNere( v.sx, h, countN, profondità + 1 )
+
+    return dx + sx + countN
+
+COSTO:
+
+Applico una visita DFS ricorsiva che ha costo O(n)

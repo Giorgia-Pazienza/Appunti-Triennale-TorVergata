@@ -1,0 +1,21 @@
+TESTO: 
+Ti è dato in input un array A[1 : n] di n numeri, con n pari. 
+L’obiettivo è partizionare gli n numeri in n/2 gruppi da 2 numeri in modo che la somma dei numeri 
+all’interno di ogni gruppo sia uguale per tutti i gruppi.
+Progetta un algoritmo che, dato A restituisce true se questo è possibile, false altrimenti. 
+Il punteggio pieno è pensato per soluzioni di complessità temporale o(n^2), ma anche soluzioni 
+con complessità Θ(n^2) saranno prese in considerazione.
+
+
+IDEA: 
+
+Ordino l'array A, con l'algoritmo di ordinamento MergeSort.
+Imposto una variabile sommaPre = A[0] + A[n-1] 
+Scorro L'array A e sommo il primo elemento con l'ultimo elemento.
+Se questa somma è diversa a sommaPre allora restituisco False. Altrimenti restituisco True
+
+
+COSTO:
+Ordinare con il MergeSort costa O(n logn)
+Scansionare l'array costa O(n)
+Costo totale è O(n logn) che è un o(n^2)

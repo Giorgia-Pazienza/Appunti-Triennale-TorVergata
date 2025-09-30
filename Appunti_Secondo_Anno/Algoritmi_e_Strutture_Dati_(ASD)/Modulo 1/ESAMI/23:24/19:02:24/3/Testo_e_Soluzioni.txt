@@ -1,0 +1,43 @@
+TESTO:
+
+Dopo aver fallito tante volte l’esame di Algoritmi e Strutture Dati, hai deciso di lasciare l’università
+e sei andato a lavorare come trasportatore. Ma questo purtroppo non ti ha salvato dagli algoritmi perchè 
+questa mattina devi fare una consegna difficile ed è anche il compleanno della tua ragazza e devi capire 
+il modo più veloce per tornare presto a casa.
+La tua città è modellata come un grafo diretto G = (V, E). Casa tua è nel nodo s. La merce da consegnare 
+si trova in tutti i magazzini, che sono posizionati nei nodi M ⊂ V , e va consegnata ad una filiale del 
+cliente che ha fatto l’ordine. Le filiali sono nei nodi F ⊂ V . Tu devi prende la merce al magazzino che 
+preferisci e consegnarla alla filiale che preferisci. E poi devi tornare a casa.
+A complicare le cose c’è anche il fatto che la tua città ha due regimi di traffico, il primo (della mattina) 
+e il secondo (del pomeriggio). Tu sei sicuro che riuscirai ad arrivare alla filiale per la consegna nel regime
+di traffico della mattina, ma poi è certo che la strada che dovrai fare per tornare a casa dovrai farla nel 
+secondo regime di traffico (quello del pomeriggio). Conosci, per ogni arco del grafo e, il tempo di percorrenza 
+nel primo regime w1(e) e nel secondo regime w2(e).
+Progetta un algoritmo efficiente che trova la strategia migliore, ovvero quella che ti riporta il prima 
+possibile a casa.
+
+IDEA: 
+
+Creiamo 2 grafi ausiliari G' = ( V', E' ) e G'' = ( V'', E'' ).
+
+Il grafo G' sarà formato da:
+- v' = V 
+- e' = E e per ogni arco e ci sta un peso w1(e)
+- avrò un arco (u,x) dal nodo m' in G' al nodo m in G
+
+Il grafo G'' sarà formato da:
+- v'' = V 
+- avrà gli archi invertiti, cioè ad ogni arco (u,v) corrisponderà un arco (v,u)
+- e'' = E e per ogni arco e ci sta un peso w2(e)
+- avrò un arco (u,y) dal nodo f' in G' al nodo f in G
+
+Applico una visita BFS sul grafo originale G che va dal nodo iniziale s al nodo m, dove si trova il magazzino. 
+
+Qui si passerà al prossimo livello G' attraverso il nodo (u,x).
+Applico una visita BFS sul grafo G' dal nodo m' al nodo f', dove si trova la filiale
+
+Qui si passerà al prossimo livello G'' attraverso il nodo (u,y).
+Questo grafo avrà gli archi invertiti e per ogni arco il peso w2(e).
+Applico una BFS sul grafo G'' dal nodo f'' al nodo s''
+
+Questo avrà un costo toale di O(m + n), poichè è il costo della BFS usando le liste di adiacenza.

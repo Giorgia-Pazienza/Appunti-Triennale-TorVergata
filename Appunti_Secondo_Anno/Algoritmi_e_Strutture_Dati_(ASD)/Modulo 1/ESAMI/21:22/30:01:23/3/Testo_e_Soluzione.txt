@@ -1,0 +1,20 @@
+TESTO:
+
+Si progetti un algoritmo che, presi due vettori A[1 : n] e B[1 : n] di n numeri positivi l’uno, 
+calcoli il più piccolo indice i ∈ {1,...,n} tale che in
+sommatoria (da k = 1 a i)  A[k] > sommatoria (da k = i a n) B[k].
+L’algoritmo deve avere complessità temporale O(n). 
+Il punteggio pieno è assegnato solo se l’algoritmo usa anche memoria ausiliaria costante, 
+ma anche soluzioni più inefficienti rispetto all’uso di memoria saranno valutate.
+
+IDEA: 
+
+Calcola la somma totale dell'array B (sum(B)).
+Scorri l'array A da Sinistra a Destra.
+Inizializza le variabili "sommaA = 0" e "sommaB = 0"
+Per ogni indice i, incremneta la variabile sommaA e sommaB con i corispettivi valori, ovvero sommaA += A[i] e sommaB += B[i].
+Confronta se la sommaA < sommaTotaleB - sommaB e incrementa l'indice proseguendo, altrimenti restituisci l'indice i.
+
+COSTO:
+
+Scansione totale array: O(n)

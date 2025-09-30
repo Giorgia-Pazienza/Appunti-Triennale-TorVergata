@@ -1,0 +1,14 @@
+TESTO:
+
+
+IDEA:
+Creo un array Ausiliario B di lunghezza k (dove k = max A) e lo inizializzo a zero.
+Scorro l'array A da sinistra a destra
+Per ogni i incremento B[A[i]], così facendo ottengo un array B che mi dice per ongi i B[i] = nRettangoli
+
+Scorro Array B e scelgo B[j] >= 2 e j = max
+
+Scorro Array A cercando A[i] = j mi prendo i due indici (uno minore, e l'altro maggiore fra tutti) e 
+mi calcolo A (j - i)
+
+COSTO:

@@ -1,0 +1,19 @@
+TESTO:
+
+Sia G = (V, E) un grafo orientato con n nodi ed m archi. Ad ogni arco e ∈ E, è associato un costo non negativo di attraversamento w(e), 
+e un colore col(e) ∈ {c1,c2}. Inoltre, ogni nodo v ∈ V ha associato due costi, w1(v) e w2(v). Intuitivamente, wi(v) è il costo per 
+attraversare il nodo v se si arriva a v con un arco di colore ci.
+Dati due nodi s a t e un cammino π da s a t, il costo di attraversamento di π è definito come la somma dei costi di attraversamento 
+degli archi di π più la somma dei costi di attraversamento dei nodi di π.
+Si progetti un algoritmo che, dati due nodi s e t, calcoli il cammino da s a t di costo di attraversamento minimo in G. 
+L’algoritmo deve avere complessità temporale O(m + n log n).
+
+IDEA:
+
+Applico l'algoritmo di Dijkstra per calcolarmi il cammino minimo dal nodo iniziale s al nodo finale t. 
+Calcolerò il costo del cammino da s a t nel seguente modo:
+π = dist_min(s, t) = min{w(e)} + min{ w_i(v) con i = {1,2} per ogni col(e) = {c_1, c_2} }
+
+COSTO: 
+
+L'algoritmo di Dijkstra ha un costo O( m + n logn )

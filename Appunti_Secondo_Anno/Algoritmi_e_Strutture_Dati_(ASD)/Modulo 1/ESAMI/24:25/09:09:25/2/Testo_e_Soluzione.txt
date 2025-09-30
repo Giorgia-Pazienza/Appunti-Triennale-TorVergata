@@ -1,0 +1,42 @@
+TESTO:
+
+Sia V un vettore di n bit. Progettare una struttura dati che risponde a domande del seguente tipo:
+query(i,d): dato un indice i ∈ {1,...,n} e una direzione x ∈ {s,d}, restituisce il numero di uni 
+strettamente a sinistra di i, se x = s, e il numero di uni strettamente a destra di i altrimenti.
+L’algoritmo di costruzione della struttura dati deve avere complessità O(n) mentre la complessità
+dell’algoritmo che risponde alla generica query deve essere O(1). Si forniscano gli pseudocodici 
+dettagliati dei due algoritmi.
+
+
+IDEA:
+
+Creaiamo due array ausiliari A e B.
+Scorriamo l'array V da destra a sinistra.
+Inizializza un contatore bit_pre = 0 
+Per ogni i da n a 1 incrementi il contatore bit_pre e assegni a A[n-1] il valore di bit_pre. 
+Ad A[n] = 0 poichè a destra non legge nulla.
+
+Scorriamo l'array V da sinistra a destra.
+Inizializza un contatore bit_pre = 0.
+Per ogni i da 1 a n incrementi il contatore bit_pre e assegni ad A[i] il valore di bit_pre.
+Ad A[1] = 0 poichè a sinistra non legge nulla.
+
+
+COSTO:
+
+V = [ 0, 1, 1, 0, 0, 1 ]
+
+A = [ 3, 2, 1, 1, 1, 0 ] (d)
+
+B = [ 0, 0, 1, 2, 2, 2 ] (s)
+
+
+def Oracolo(V):
+    creiamo due array ausiliari A e bB 
+    bit_pre = 0
+    for i = n to n do:
+        A[n] <- 0
+        bit_pre += 1
+        A[i] <- bit_pre
+
+    for 

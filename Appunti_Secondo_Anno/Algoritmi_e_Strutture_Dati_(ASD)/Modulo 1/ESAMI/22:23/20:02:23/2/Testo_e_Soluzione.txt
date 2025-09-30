@@ -1,0 +1,26 @@
+TESTO: 
+
+Sia A[1 : n] un vettore di n bit, ovvero A[i] ∈ {0, 1} per ogni i. 
+Si progetti un oracolo (struttura dati) che pu`o essere costruito in tempo O(n) e 
+che sia in grado di rispondere in tempo costante a domande del tipo:
+q(i): dato i ∈ 1,...,n, restituire il piu` piccolo indice j ≥ i tale che A[j] = 1. 
+Se tale indice j non esiste la risposta alla domanda `e −1.
+Si forniscano gli pseudocodici dettagliati dell’algoritmo che, preso A, costruisce in 
+tempo O(n) l’oracolo, e dell’algoritmo che, dato l’oracolo e un indice i, restituisce in 
+tempo O(1) la risposta alla domanda q(i).
+
+IDEA: 
+
+Per costuire l'oracolo faremo:
+    - Costruisco un Array Ausiliario B[1:n]
+    - Scorri A da destra a sinistra (da n a 1)
+    - Per ogni i tale che A[i] == 1 inserisco i in B[i]
+    - Se A[i] == 0 inserisco in B[i] il valore della posizione precedente dell'array B.
+
+La query prenderà in input l'array ausiliario B creato precedentemente nell'oracolo e un indice, 
+così facendo risponderà alla query in O(1) restituendo B[i].
+
+COSTO:
+
+Scansione array da destra a sinistra: O(n)
+Creazione array ausiliario, ha costo spaziale: O(n)

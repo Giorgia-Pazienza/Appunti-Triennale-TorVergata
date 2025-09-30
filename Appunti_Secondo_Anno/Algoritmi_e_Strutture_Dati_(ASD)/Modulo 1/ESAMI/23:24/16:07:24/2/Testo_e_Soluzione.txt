@@ -1,0 +1,26 @@
+TESTO:
+Un’autostrada è lunga n chilometri, numerati da 1 ad n. 
+In alcuni di questi chilometri è presente una colonnina SOS (per le chiamate di soccorso stradale). 
+Questa informazione è rappresentata attraverso un vettore booleano A di lunghezza n dove A[i] = 1 
+se al chilometro i è presente la colonnina SOS e A[i] = 0 altrimenti.
+Si vuole calcolare un vettore B di dimensione n tale che, per ogni i ∈ {1, 2, . . . , n}, 
+B[i] contiene il chilometro in cui è presente la colonnina SOS più vicina al chilometro i.
+L’algoritmo deve avere complessità O(n). Si fornisca lo pseudocodice dettagliato dell’algoritmo.
+
+
+IDEA:
+
+Creo un Array Ausiliario B[1: n].
+Scorro l'array A da sinistra a destra. 
+Per ogni i da 1 a n. 
+Se A[i] = 1 allora in B[i] corrispondente aggiungo i.
+Altrimenti non aggiungo nulla.
+
+Scorro B da destra a sinistra.
+Per ogni i da n a 1.
+Se B[i] è vuoto aggiungo il valore di B[i-1].
+Restituisco B a fine scansione. 
+
+COSTO:
+
+L'algoritmo rispetta il costo di O(n) poichè fa una scansione dell'array A che costa O(n)

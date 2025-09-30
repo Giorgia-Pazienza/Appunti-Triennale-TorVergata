@@ -1,0 +1,25 @@
+TESTO:
+
+Nell’ultimo gioco rilasciato dalla Mintendo, Super Ciano Bross si trova su un nodo s di un grafo orientato G = (V,E) con 
+n nodi ed m archi, e deve raggiungere il nodo t per vincere il livello. Ogni arco e è associato inizialmente uno stato 
+σ(e) ∈ {on,off}. Super Ciano può attraversare solo gli archi che sono nello stato on. C’è inoltre un insieme di nodi B ⊆ V 
+che contengono un bottone speciale. Se Ciano è su un nodo b ∈ B può decidere di schiacciare il bottone e tutti gli archi 
+invertono il proprio stato, quelli che erano nello stato on passano allo stato off e quelli che erano nello stato off passano 
+nello stato on.
+Progettate un algoritmo di complessità O(m + n) che calcola, se esiste, una strategia per Super Ciano che lo porta a vincere 
+il livello nel nodo t.
+
+
+IDEA: 
+
+Creo un grafo ausiliario G' = (V', E') formato da:
+v' = v 
+e' = E 
+Ogni nodo b ∈ B ⊆ V avrà un corrispondente nodo b' ∈ B' ⊆ V', collegheremo con un arco (u', v') i nodi b ∈ B in G con i rispettivi 
+nodi b' ∈ B' in G' 
+Se w(e) = ON in G, allora avremo w(e') = OFF in G'. Altrimenti se w(e) = OFF in G, avremo w(e') = ON in G'
+Applichiamo una visita BFS con liste di adiacenza che ha un costo di O( n + m )
+
+Attraversiamo ogni arco ON partendo dal nodo s. Se incontriamo un nodo b, che collegato ad un novo v attraverso un arco OFF, possiamo 
+se necessario passare al prossimo livello, in modo tale da attraversare solo nodi ON e raggiungere il nodo finale t (nodo obiettivo).
+

@@ -1,0 +1,35 @@
+TESTO:
+
+Sia T un albero binario con n, dove ogni nodo v di T ha un colore v.col che può essere Blu (B) o Giallo (G), 
+e quindi v.col ∈ {B,G}. Si progetti un algoritmo che dato T e due interni b e g, restituisca il numero di 
+nodi di T che hanno almeno b antenati blue o almeno g antenati gialli.
+Si assuma che T è rappresentato tramite una struttura dati collegata, con record e puntatori, dove il record 
+di ogni nodo, oltre al campo v.col, contiene anche il puntatore al figlio sinistro e al figlio destro del nodo. 
+L’algoritmo deve avere complessità O(n). Si fornisca lo pseudocodice dettagliato.
+
+IDEA:
+
+Applichiamo una visita DFS Ricorsiva sull'albero T.
+Percorrendo l'albero verso il basso, se il nodo non è una foglia andremo a vedere i colori di ogni antenato
+e incrementeremo 2 contatori uno per i nodi gialli, uno per i nodi blu.
+Per ogni ogni ramificazione andremo a controllare se i contatori sono maggiori o uguali ai valori g e b dati in input
+e ritorniamo verso sopra il valore dx + sx + 1.
+
+PSEDOCODICE:
+
+Esplora(nodo v, g, b, antb, antg)
+
+    If v non è una foglia
+
+        if v è blu then
+            countb += 1
+        else 
+            countg += 1
+        dx = Esplora(nodo v, g, b, antb, antg)
+        sx = Esplora(nodo v, g, b, antb, antg)
+        
+    If antb >= b 
+        return dx + sx + 1
+    If antg >= g 
+        return dx + sx + 1
+    return dx + sx 

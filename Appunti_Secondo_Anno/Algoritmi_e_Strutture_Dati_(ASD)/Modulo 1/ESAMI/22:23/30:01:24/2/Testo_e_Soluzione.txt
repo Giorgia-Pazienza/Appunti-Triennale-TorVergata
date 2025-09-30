@@ -1,0 +1,31 @@
+TESTO:
+
+Sia T un albero binario con n nodi, dove ad ogni nodo v è associato un valore positivo val(v). 
+Si progetti un algoritmo che dato T e un valore ∆, restituisca il numero di nodi di T la cui somma 
+dei valori degli antenati è almeno ∆.
+Si assuma che T è rappresentato tramite una struttura dati collegata, con record e puntatori, 
+dove il record di ogni nodo contiene il puntatore al figlio sinistro e al figlio destro del nodo. 
+L’algoritmo deve avere complessità O(n). Si fornisca lo pseudocodice dettagliato.
+
+IDEA:
+
+Applihiamo una visita DFS Ricorsiva sull'albero T.
+Se il nodo non è una foglia, scendiamo e visitiamo i nodi dell'albero.
+Ci inizializziamo un contatore che per ogni nodo aumenteremo della somma del nodo corrente 
+più quello precedente.
+Quando risaliamo l'albero controlliamo se la somma calcolata è maggiore uguale a ∆,
+e restituiremo dx + sx + 1 
+
+PSEUDOCODICE:
+
+SommaValori(nodo v, ∆, count)
+    
+    If v non è foglia
+        count += valore
+        dx = SommaValori(v.sx, ∆, count)
+        sx = SommaValori(v.dx, ∆, count)
+    
+    If count - v.val(v) >= ∆ then
+        return 1 + sx + dx
+    return dx + sx
+    

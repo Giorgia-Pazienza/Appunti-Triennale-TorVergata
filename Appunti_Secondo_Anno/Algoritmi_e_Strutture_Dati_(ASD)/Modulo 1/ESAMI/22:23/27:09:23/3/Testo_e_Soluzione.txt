@@ -1,0 +1,27 @@
+TESTO: 
+
+Sia A[1 : n] un vettore di n bit, dove quindi A[i] ∈ {0, 1} per ogni i. Si progetti una struttura 
+dati che prende in input il vettore A e sia in grado poi di rispondere a query del seguente tipo:
+• BlockSize(i): dato un indice i ∈ {1, 2, . . . , n} restituisce la lunghezza del più grande blocco 
+di zero contigui che contiene l’indice i. Se A[i] = 1, allora la risposta alla query è 0.
+La struttura dati deve poter essere costruita in tempo O(n) e l’algoritmo di query deve richiedere 
+tempo constante. Si forniscano i due pseudocodici dettagliati dell’algoritmo che dato A costruisce 
+la struttura dati, e dell’algoritmo di query.
+
+IDEA:
+
+Scorro l'array A da destra a sinistra. 
+Creo un Array Ausiliario B
+Inizializzo un contatore denominato "count0", per ogni i quando A[i] = 0 incremento il contatore.
+Se A[i + 1] = 1 blocco il contatore e inserisco il valore in B[i - 1].
+Se A[i]= 1 scrivo in posizione B[i] corrispondente 0.
+
+Scorro da sinistra a destra l'array B.
+Creo un array Ausiliario B'.
+Inserisco i valori di B[i] in B'[i] corrispondente.
+Se B[i] è vuota, vedo il valore di B[i-1] e se è ≠ 0 copio il valore in B[i].
+Dato un indice i a caso, la query risponderà in O(1) poichè restituirà il valore B'[i] corrispondente.
+
+COSTO: 
+
+Scorrere i vari array ha un costo di O(n)

@@ -1,0 +1,29 @@
+TESTO:
+
+Sia T un albero binario con n nodi. Si progetti un algoritmo che dato T e due interi h1 e h2, con h1 ≤ h2, 
+restituisca il numero di nodi non foglia di T che hanno profondità h tale che h1 ≤ h ≤ h2. 
+Si assuma che T è rappresentato tramite una struttura dati collegata, con record e puntatori, dove il record
+di ogni nodo contiene il puntatore al figlio sinistro e al figlio destro del nodo.
+L’algoritmo deve avere complessità O(n). Si fornisca lo pseudocodice dettagliato.
+
+IDEA:
+
+Applichiamo una visita DFS ricorsiva sull'alabero T.
+Se il nodo v non è una foglia, esplora l'albero T scendendo in profondità.
+Inizializza un contatore "contaAltezza = 0" che incrementerà e lo confronterà con i valori h1 e h2.
+Confornterà se h è compreso tra h1 e h2 e restituirà il valore dx + sx + 1
+
+
+PSEUDOCODICE:
+
+ContaAltezza(nodo v, h1, h2, h)
+
+    contaAltezza = 0
+
+    If il nodo v non è foglia
+        contaAltezza += 1
+        if contaAltezza >= h1 or contaAltezza <= h2 then
+            dx = ContaAltezza(v.dx, h1, h2, h)
+            sx = ContaAltezza(v.sx, h1, h2, h)
+    if h1 <= h and h2 >= h then 
+        return dx + sx + 1

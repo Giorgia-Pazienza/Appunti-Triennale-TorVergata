@@ -1,0 +1,19 @@
+TESTO:
+
+Sia A[1 : n] un vettore di n numeri. 
+Un k-picco in A è un indice m ∈ {k+1,...,n−k} tale che la sequenza di elementi A[m − k; m] 
+è strettamente crescente, mentre la sequenza di elementi A[m; m + k] è strettamente decrescente.
+Si progetti un algoritmo che dato A calcola il più grande valore di k per cui A contiene un k-picco. 
+L’algoritmo deve avere complessità O(n). Si fornisca lo pseudocodice dettagliato.
+
+IDEA:
+
+Scorri l'array A da sinistra a destra.
+inizializzo due contatori "cresce = 0" e "decresce = 0"
+Per ogni elemento i, se A[i] > A[i-1] incremento la variabile cresce. 
+Altrimenti, se A[i] > A[i+1] incremento la varibile decresce.
+Quando ...??
+
+COSTO:
+
+L'algoritmo rispetta il costo poichè esegue una sola scansione dell'array che costa O(n).

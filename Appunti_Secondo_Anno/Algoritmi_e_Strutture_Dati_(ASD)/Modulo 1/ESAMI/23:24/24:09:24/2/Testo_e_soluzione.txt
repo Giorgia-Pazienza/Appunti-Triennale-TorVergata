@@ -1,0 +1,29 @@
+TESTO: 
+
+Lavorate come responsabile degli investimenti per una azienda che attualmente ha un capitale di L euro. 
+Nei prossimi giorni l’azienda riscuoterà diverse somme di denaro relative a pagamenti di commesse in scadenza.
+Queste informazioni sono contenute in un array A[1 : n], dove per ogni i, A[i] ≥ 0 è la somma in euro che 
+l’azienda incasserà nel giorno i. 
+Ora, per pianificare gli investimenti avete bisogno di uno strumento che velocemente risponde alla seguente 
+query:
+query(x): dato un fabbisogno x di liquidità, restituisce il primo giorno in cui l’azienda avrà liquidità 
+almeno x, se esiste; -1 altrimenti.
+Progettate quindi una struttura dati che è in grado di rispondere a questo tipo di query in tempo o(n).
+Si forniscano gli pseudocodici dettagliati dell’algoritmo che dato A costruisce la struttura dati, 
+e dell’algoritmo che dato x risponde a query(x). Si analizzino le complessità temporali dei due algoritmi.
+
+
+IDEA: 
+
+Creo un array ausiliario B[1:n]
+Scorri l'array A da sinistra a destra.
+Per ogni i in B[i] scriverò L + sommaparziale degli elementi di A
+Restituisci l'array B 
+Applico la ricerca binaria su B per restituire l'indice che indica il giorno che soddisfa il fabbisogno x, 
+dato in input dalla query
+
+COSTO:
+
+Scansionare l'array A per crearmi la struttura dati ha un costo di O(n).
+La risposta alla query ha un costo di O(logn), poichè applico la RicercaBinaria, quindi o(n)
+come richiede il testo.

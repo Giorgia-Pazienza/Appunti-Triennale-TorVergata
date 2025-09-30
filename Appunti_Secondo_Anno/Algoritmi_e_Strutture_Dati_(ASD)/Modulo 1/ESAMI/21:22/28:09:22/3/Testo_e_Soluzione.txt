@@ -1,0 +1,25 @@
+TESTO: 
+
+Il coefficiente di similarità di Jaccard di due insieme A e B è definito come 
+J(A,B)= |A∩B|/|A∪B|
+Si progetti un algoritmo che presi due insiemi di n elementi, calcoli in tempo o(n^2) il loro coefficiente di similarità di Jaccard.
+
+
+IDEA: 
+
+Ordino uno dei due array, in questo caso scelgo di ordinare l'array B.
+Scorro l'array A da sinistra a destra.
+Calcolo n = len(A), che corrisponde a |A| e m = len(B), che corrisponde all'array B
+Inizializzo una varibile "intersezione" = 0
+Per ogni i in A, verifico se A[i] è contenuto nell'array B, per farlo applicherò la RicercaBinaria sull'array B.
+Se A[i] esiste all'interno dell'array B, incremento la variabile intersezione.
+Una volta ultimato lo scorrimento dell'array A, calcolo intersezione/ (n + m - intersezione) e restituisco il valore. 
+
+COSTO:
+
+Ordinare l'array B con il MergeSort ha costo: O(n logn)
+Applicare la ricerca dell'elemento attraverso l'algoritmo di RicercaBinaria ha costo: O(n)
+Scansionare l'array A ha costo: O(n)
+
+Costo Totale: O (n logn)
+

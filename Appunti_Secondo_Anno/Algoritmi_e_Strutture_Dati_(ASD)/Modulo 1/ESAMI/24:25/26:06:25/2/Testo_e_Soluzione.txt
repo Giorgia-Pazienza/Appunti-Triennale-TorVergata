@@ -1,0 +1,23 @@
+TESTO:
+
+Dati due insiemi A e B, definiamo l’inclusion coefficient di B in A il valore numerico: Φ(A, B) =
+|A∩B|. Dati due insiemi A e B di n elementi ciascuno memorizzati in due vettori, progettare un |A|
+algoritmo che calcoli Φ(A.B) in tempo o(n2). Si fornisca lo pseudocodice dettagliato dell’algoritmo.
+
+IDEA: 
+
+Ordino uno dei due array, in questo caso scelgo di ordinare l'array B.
+Scorro l'array A da sinistra a destra.
+Calcolo n = len(A), che corrisponde a |A|
+Inizializzo una varibile "intersezione" = 0
+Per ogni i in A, verifico se A[i] è contenuto nell'array B, per farlo applicherò la RicercaBinaria sull'array B.
+Se A[i] esiste all'interno dell'array B, incremento la variabile intersezione.
+Una volta ultimato lo scorrimento dell'array A, calcolo intersezione/n e restituisco il valore. 
+
+COSTO:
+
+Ordinare l'array B con il MergeSort ha costo: O(n logn)
+Applicare la ricerca dell'elemento attraverso l'algoritmo di RicercaBinaria ha costo: O(n)
+Scansionare l'array A ha costo: O(n)
+
+Costo Totale: O (n logn)

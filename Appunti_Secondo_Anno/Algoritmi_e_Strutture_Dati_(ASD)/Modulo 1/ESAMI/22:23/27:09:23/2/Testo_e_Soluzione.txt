@@ -1,0 +1,21 @@
+TESTO: 
+
+Un labirinto è modellato come un grafo non diretto G = (V,E). 
+Voi siete nel nodo s e l’uscita si trova nel nodo t. 
+Potete percorrere gli archi, spendendo un minuto per ogni arco. 
+Nel labirinto inoltre c’è un nodo speciale p che è un teletrasporto, 
+e un insieme di nodi U ⊆ V che sono uscite del teletrasporto. 
+Se siete su p potete teletrasportarvi in un qualsiasi nodo q ∈ U a vostra scelta. 
+Il tempo del teletrasporto è di 3 minuti.
+Progettate un algoritmo efficiente che calcoli la strategia più veloce, se esiste, 
+per uscire dal labirinto.
+
+IDEA:
+
+Applico l'algoritmo di Dijkstra nel grafo G=(V, E), partendo dal nodo s.
+Per calcolarmi il cammino più veloce che dal nodo iniziale s mi porti al nodo finale t, mi calcolerò la seguente equazione:
+π = min{s, p} + costo(p) + min{q, t}
+dove:
+- il min{s, p} è il minimo di archi e che vanno a formare il cammino da s a p ( min #e da s a p )
+- il costo(p) è il costo del teletrasporto che vale 3
+- il min{q, t} è il minimo di archi e che vanno a formare il cammino da q a t ( min #e da q a t )
